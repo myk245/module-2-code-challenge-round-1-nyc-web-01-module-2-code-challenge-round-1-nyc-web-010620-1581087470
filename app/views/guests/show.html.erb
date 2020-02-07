@@ -1,10 +1,12 @@
-<h1><%=  @guest.name %></h2>
+<h1><%=  @guest.name %></h1>
 <br>
-Occupation: <%= @guest.occupation %>
+<strong>Occupation: <%= @guest.occupation %></strong>
 <br>
 <br>
-Appears on These Episodes: <% @episodes.each do |episode| %>
-<ul>
-<li>Episode Number:<%= episode.number %>, Episode Date: <%= episode.date %></li>
-</ul>
+<strong>Appears on These Episodes: <% @appearances.each do |appearance| %>
+   <ul>
+   <li>Episode Number:<%= appearance.episode.number %>, Episode Date: <%= appearance.episode.date %></li>
+   <ul>Appearance Rating: <%= appearance.rating %></ul>
+   </ul>
 <% end %>
+

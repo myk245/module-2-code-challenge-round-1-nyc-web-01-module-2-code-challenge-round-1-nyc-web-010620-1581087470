@@ -9,7 +9,7 @@ class AppearancesController < ApplicationController
          flash[:message] = "Appearance successfully created!"
          redirect_to episode_path(@appearance.episode)
       else 
-         flash[:message] = @appearance.errors.full_messages[0]
+         flash.now[:messages] = @appearance.errors.full_messages[0]
          render :new
       end 
    end 
