@@ -8,7 +8,7 @@ class GuestsController < ApplicationController
     @guest = Guest.find(params[:id])
     @episodes = @guest.episodes
     @appearances = @guest.appearances
-    # @appearance_rating = @appearances.find(@guest.id)
+    # @appearance_ratings = @appearances.map{|appearance| appearance.rating}
   end 
 
   def edit
@@ -39,3 +39,7 @@ end
     # [x] date of the Episode
     # rating for the Appearance -- NEED TO COME BACK TO THIS 
     # Show Page: (<ul>Appearance Rating: <%= episode.guest.appearance_rating %></ul>)
+      # I don't have time to write out the code, but my logic is:
+      # I would iterate through the array of appearances that the guest has 
+      # and then map over that to grab the rating
+      # on the show page I would then 
