@@ -1,5 +1,9 @@
 <h1>Create a New Appearance!</h1>
 
+<% if flash[:message] %>
+   <p style="background-color:Tomato;"><strong><%= flash[:message] %></strong></p>
+   <% end %>
+
 <%= form_for @appearance do |f| %>
 <%= f.label :episode %>
 <%= f.collection_select :episode_id, Episode.all, :id, :number %>

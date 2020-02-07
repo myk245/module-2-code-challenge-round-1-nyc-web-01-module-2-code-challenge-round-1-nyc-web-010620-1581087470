@@ -4,8 +4,14 @@ class AppearancesController < ApplicationController
    end 
 
    def create
-      @appearance = Appearance.create(appearance_params)
-      redirect_to episode_path(@appearance.episode)
+      @appearance = Appearance.new(appearance_params)
+      if @appearance.save 
+         flash[:message] = "Appearance successfully created!"
+         redirect_to episode_path(@appearance.episode)
+      else 
+         flash[:message] = @appearance.errors.full_messages[0]
+         render :new
+      end 
    end 
 
    def show
